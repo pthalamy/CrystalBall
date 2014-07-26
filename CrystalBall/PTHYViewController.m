@@ -26,6 +26,11 @@
     NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
     AudioServicesCreateSystemSoundID(CFBridgingRetain(soundURL), &soundEffect);
     
+    self.originalLabelFrame = CGRectMake(self.predictionLabel.frame.origin.x,
+                                            self.predictionLabel.frame.origin.y,
+                                            self.predictionLabel.frame.size.width,
+                                            self.predictionLabel.frame.size.height);
+    
     self.crystalBall = [[PTHYCrystalBall alloc] init];
     
     self.backgroundImageView.animationImages = [[NSArray alloc] initWithObjects:
@@ -114,11 +119,6 @@
     [self.backgroundImageView startAnimating];
     
     AudioServicesPlaySystemSound(soundEffect);
-
-    CGRect originalFrame = CGRectMake(self.predictionLabel.frame.origin.x,
-                                      self.predictionLabel.frame.origin.y,
-                                      self.predictionLabel.frame.size.width,
-                                      self.predictionLabel.frame.size.height);
     
     [UIView animateWithDuration:1.0f animations:^{
         self.predictionLabel.frame = CGRectMake(self.predictionLabel.frame.origin.x,
@@ -128,7 +128,7 @@
         self.predictionLabel.alpha = 0;
     } completion:^(BOOL finished){
         [UIView animateWithDuration:1.0f animations:^{
-            self.predictionLabel.frame = originalFrame;
+            self.predictionLabel.frame = self.originalLabelFrame;
             self.predictionLabel.text = [self.crystalBall randomPrediction];   
             self.predictionLabel.alpha = 1;
         }];
@@ -137,33 +137,20 @@
 
 #pragma mark - motion events
 
-- (void) motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
-{
-    self.predictionLabel.text = nil;
-}
-
 - (void) motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
     if (motion == UIEventSubtypeMotionShake) {
-        [self makePrediction];
+        self.predictionLabel.text = nil;
     }
-}
-
-- (void) motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event
-{
-    NSLog(@"Motion Cancelled.");
 }
 
 #pragma mark - touch events
 
-- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    NSLog(@"Touch Began.");
-}
-
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self makePrediction];
+    UITouch *touch = [touches anyObject];
+    if ([touch tapCount] == 1)
+        [self makePrediction];
 }
 
 @end

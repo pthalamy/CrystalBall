@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *predictionLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (strong, nonatomic) PTHYCrystalBall *crystalBall;
+@property (assign, nonatomic) CGRect originalLabelFrame;
 
 //- (IBAction)buttonPressed;
 
