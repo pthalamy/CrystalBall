@@ -21,6 +21,9 @@
 		0259B2F81982B672003B6BEB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0259B2DA1982B672003B6BEB /* UIKit.framework */; };
 		0259B3001982B672003B6BEB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0259B2FE1982B672003B6BEB /* InfoPlist.strings */; };
 		0259B3021982B672003B6BEB /* CrystalBallTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0259B3011982B672003B6BEB /* CrystalBallTests.m */; };
+		02814C5E1983C294005EB405 /* crystal_ball.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02814C5D1983C294005EB405 /* crystal_ball.mp3 */; };
+		02814C601983C2D9005EB405 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02814C5F1983C2D9005EB405 /* AudioToolbox.framework */; };
+		02D25C96198393FB00F0E61A /* PTHYCrystalBall.m in Sources */ = {isa = PBXBuildFile; fileRef = 02D25C95198393FB00F0E61A /* PTHYCrystalBall.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,10 @@
 		0259B2FD1982B672003B6BEB /* CrystalBallTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CrystalBallTests-Info.plist"; sourceTree = "<group>"; };
 		0259B2FF1982B672003B6BEB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0259B3011982B672003B6BEB /* CrystalBallTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CrystalBallTests.m; sourceTree = "<group>"; };
+		02814C5D1983C294005EB405 /* crystal_ball.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = crystal_ball.mp3; sourceTree = "<group>"; };
+		02814C5F1983C2D9005EB405 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		02D25C94198393FB00F0E61A /* PTHYCrystalBall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTHYCrystalBall.h; sourceTree = "<group>"; };
+		02D25C95198393FB00F0E61A /* PTHYCrystalBall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTHYCrystalBall.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02814C601983C2D9005EB405 /* AudioToolbox.framework in Frameworks */,
 				0259B2D91982B672003B6BEB /* CoreGraphics.framework in Frameworks */,
 				0259B2DB1982B672003B6BEB /* UIKit.framework in Frameworks */,
 				0259B2D71982B672003B6BEB /* Foundation.framework in Frameworks */,
@@ -101,6 +109,7 @@
 		0259B2D51982B672003B6BEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				02814C5F1983C2D9005EB405 /* AudioToolbox.framework */,
 				0259B2D61982B672003B6BEB /* Foundation.framework */,
 				0259B2D81982B672003B6BEB /* CoreGraphics.framework */,
 				0259B2DA1982B672003B6BEB /* UIKit.framework */,
@@ -112,13 +121,13 @@
 		0259B2DC1982B672003B6BEB /* CrystalBall */ = {
 			isa = PBXGroup;
 			children = (
-				0259B2E51982B672003B6BEB /* PTHYAppDelegate.h */,
-				0259B2E61982B672003B6BEB /* PTHYAppDelegate.m */,
 				0259B2E81982B672003B6BEB /* Main.storyboard */,
 				0259B2EB1982B672003B6BEB /* PTHYViewController.h */,
 				0259B2EC1982B672003B6BEB /* PTHYViewController.m */,
 				0259B2EE1982B672003B6BEB /* Images.xcassets */,
 				0259B2DD1982B672003B6BEB /* Supporting Files */,
+				02D25C94198393FB00F0E61A /* PTHYCrystalBall.h */,
+				02D25C95198393FB00F0E61A /* PTHYCrystalBall.m */,
 			);
 			path = CrystalBall;
 			sourceTree = "<group>";
@@ -126,6 +135,9 @@
 		0259B2DD1982B672003B6BEB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				02814C5D1983C294005EB405 /* crystal_ball.mp3 */,
+				0259B2E51982B672003B6BEB /* PTHYAppDelegate.h */,
+				0259B2E61982B672003B6BEB /* PTHYAppDelegate.m */,
 				0259B2DE1982B672003B6BEB /* CrystalBall-Info.plist */,
 				0259B2DF1982B672003B6BEB /* InfoPlist.strings */,
 				0259B2E21982B672003B6BEB /* main.m */,
@@ -231,6 +243,7 @@
 			files = (
 				0259B2EF1982B672003B6BEB /* Images.xcassets in Resources */,
 				0259B2E11982B672003B6BEB /* InfoPlist.strings in Resources */,
+				02814C5E1983C294005EB405 /* crystal_ball.mp3 in Resources */,
 				0259B2EA1982B672003B6BEB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,6 +265,7 @@
 			files = (
 				0259B2ED1982B672003B6BEB /* PTHYViewController.m in Sources */,
 				0259B2E31982B672003B6BEB /* main.m in Sources */,
+				02D25C96198393FB00F0E61A /* PTHYCrystalBall.m in Sources */,
 				0259B2E71982B672003B6BEB /* PTHYAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,6 +395,7 @@
 				GCC_PREFIX_HEADER = "CrystalBall/CrystalBall-Prefix.pch";
 				INFOPLIST_FILE = "CrystalBall/CrystalBall-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -394,6 +409,7 @@
 				GCC_PREFIX_HEADER = "CrystalBall/CrystalBall-Prefix.pch";
 				INFOPLIST_FILE = "CrystalBall/CrystalBall-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -457,6 +473,7 @@
 				0259B3071982B672003B6BEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0259B3081982B672003B6BEB /* Build configuration list for PBXNativeTarget "CrystalBallTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +482,7 @@
 				0259B30A1982B672003B6BEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
