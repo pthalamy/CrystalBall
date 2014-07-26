@@ -1,4 +1,5 @@
 //
+
 //  PTHYViewController.m
 //  CrystalBall
 //
@@ -22,7 +23,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     NSString *soundPath = [[NSBundle mainBundle] pathForResource:@"crystal_ball" ofType:@"mp3"];
-    NSString *soundURL = [NSURL fileURLWithPath:soundPath];
+    NSURL *soundURL = [NSURL fileURLWithPath:soundPath];
     AudioServicesCreateSystemSoundID(CFBridgingRetain(soundURL), &soundEffect);
     
     self.crystalBall = [[PTHYCrystalBall alloc] init];
@@ -105,18 +106,32 @@
 //    self.predictionLabel.text = [self.crystalBall randomPrediction];
 //}
 
-#pragma mark - prediction
+#pragma mark - prediction and animation
 
 - (void) makePrediction
 {
-    [self.backgroundImageView startAnimating];
-    self.predictionLabel.text = [self.crystalBall randomPrediction];
-    self.predictionLabel.alpha = 0.0f;
-
-    AudioServicesPlaySystemSound(soundEffect);
     
-    [UIView animateWithDuration:6.0f animations:^{
-        self.predictionLabel.alpha = 1.0f;
+    [self.backgroundImageView startAnimating];
+    
+    AudioServicesPlaySystemSound(soundEffect);
+
+    CGRect originalFrame = CGRectMake(self.predictionLabel.frame.origin.x,
+                                      self.predictionLabel.frame.origin.y,
+                                      self.predictionLabel.frame.size.width,
+                                      self.predictionLabel.frame.size.height);
+    
+    [UIView animateWithDuration:1.0f animations:^{
+        self.predictionLabel.frame = CGRectMake(self.predictionLabel.frame.origin.x,
+                                                600,
+                                                self.predictionLabel.frame.size.width,
+                                                self.predictionLabel.frame.size.height);
+        self.predictionLabel.alpha = 0;
+    } completion:^(BOOL finished){
+        [UIView animateWithDuration:1.0f animations:^{
+            self.predictionLabel.frame = originalFrame;
+            self.predictionLabel.text = [self.crystalBall randomPrediction];   
+            self.predictionLabel.alpha = 1;
+        }];
     }];
 }
 
@@ -143,7 +158,7 @@
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    self.predictionLabel.text = nil;
+    NSLog(@"Touch Began.");
 }
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event

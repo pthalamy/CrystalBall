@@ -21,12 +21,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="It is decidedly so" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" preferredMaxLayoutWidth="244" translatesAutoresizingMaskIntoConstraints="NO" id="Ir6-Qy-L5S">
-                                <rect key="frame" x="38" y="207" width="244" height="140"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="248" id="FIY-QC-Khi"/>
-                                    <constraint firstAttribute="height" constant="140" id="NxI-L1-fKe"/>
-                                </constraints>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="It is decidedly so" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" preferredMaxLayoutWidth="244" translatesAutoresizingMaskIntoConstraints="NO" id="Ir6-Qy-L5S">
+                                <rect key="frame" x="38" y="214" width="244" height="140"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="30"/>
                                 <color key="textColor" red="0.70980392160000005" green="0.0" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
